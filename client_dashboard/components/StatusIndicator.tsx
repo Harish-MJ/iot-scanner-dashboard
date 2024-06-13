@@ -8,7 +8,7 @@ const StatusIndicator: React.FC = () => {
   useEffect(() => {
     const checkStatus = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/data');
+        const response = await axios.get('${process.env.REACT_APP_API_URL}/api/data');
         setIsConnected(response.data.length > 0); 
       } catch (error) {
         setIsConnected(false);
