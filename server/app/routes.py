@@ -1,10 +1,10 @@
-from flask import request, jsonify
+from flask import request, jsonify, current_app as app
 from flask_socketio import emit
-from . import db, socketio, app
+from . import db, socketio
 from .models import LaserData
 import json
 
-@app.route('/data', methods=['POST'])
+@app.route('/api/data', methods=['POST'])
 def store_data():
     data = request.get_json()
     if data:
@@ -28,7 +28,7 @@ def store_data():
     else:
         return jsonify({"message": "No data received"}), 400
 
-@app.route('/data', methods=['GET'])
+@app.route('/api/data', methods=['GET'])
 def get_data():
     data = LaserData.query.all()
     result = [
