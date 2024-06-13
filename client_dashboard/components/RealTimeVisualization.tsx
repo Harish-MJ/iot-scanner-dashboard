@@ -19,12 +19,12 @@ interface LaserData {
 
 const RealTimeVisualization: React.FC = () => {
   const [data, setData] = useState<LaserData | null>(null);
-  const [chartData, setChartData] = useState({
+  const [chartData, setChartData] = useState<any>({
     datasets: [
       {
         label: 'Laser Data',
-        data: [],
-        backgroundColor: [],
+        data: [] as { x: number; y: number }[],
+        backgroundColor: [] as string[],
         pointRadius: 3,
         showLine: false,
       },
@@ -68,8 +68,8 @@ const RealTimeVisualization: React.FC = () => {
   const options = {
     scales: {
       x: {
-        type: 'linear',
-        position: 'bottom',
+        type: 'linear' as const,
+        position: 'bottom' as const,
         min: -10,
         max: 360,
         title: {
@@ -78,7 +78,7 @@ const RealTimeVisualization: React.FC = () => {
         },
       },
       y: {
-        type: 'linear',
+        type: 'linear' as const,
         min: 0,
         max: 1050,
         title: {

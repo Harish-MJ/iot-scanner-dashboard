@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import DataTable from '/components/DataTable';
-import RealTimeVisualization from '/components/RealTimeVisualization';
-import StatusIndicator from '/components/StatusIndicator';
+import DataTable from '../components/DataTable';
+import RealTimeVisualization from '../components/RealTimeVisualization';
+import StatusIndicator from '../components/StatusIndicator';
 
 const App: React.FC = () => {
   return (
