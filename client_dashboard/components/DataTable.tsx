@@ -20,7 +20,7 @@ const DataTable: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/data');
+        const response = await axios.get('${process.env.REACT_APP_API_URL}/api/data');
         const latestData = response.data[response.data.length - 1]; // Get the latest data entry
         setData(latestData);
       } catch (error) {
