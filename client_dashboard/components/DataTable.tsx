@@ -3,6 +3,8 @@ import axios from 'axios';
 import './DataTable.css';
 import './customStyles.css';  // Import custom styles
 
+const apiUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API_URL : process.env.LOCAL_API_URL;
+
 interface Measurement {
   angle: number;
   distance: number;
@@ -20,7 +22,7 @@ const DataTable: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('${process.env.REACT_APP_API_URL}/api/data');
+        const response = await axios.get(`${apiUrl}/api/data`);
         const latestData = response.data[response.data.length - 1]; // Get the latest data entry
         setData(latestData);
       } catch (error) {
