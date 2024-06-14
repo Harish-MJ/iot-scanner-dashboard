@@ -11,7 +11,7 @@ const StatusIndicator: React.FC = () => {
       try {
         const apiUrl = process.env.REACT_APP_API_URL;
         console.log('API URL:', apiUrl);
-        const response = await axios.get(`${apiUrl}/api/data`);
+        const response = await axios.get(`https://iot-scanner-dashboard.onrender.com/api/data`);
         setIsConnected(response.data.length > 0); 
       } catch (error) {
         setIsConnected(false);
