@@ -7,10 +7,9 @@ This project is a web application for visualizing and managing data from a simul
 - [Overview](#overview)
 - [Features](#features)
 - [Prerequisites](#prerequisites)
-- [Setup](#setup)
+- [Setup (local development)](#setup-local-development)
 - [Running the Application](#running-the-application)
 - [Deployment](#deployment)
-- [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [License](#license)
@@ -89,7 +88,9 @@ npm start
 ./run_device_prod.sh
 ```
 
-## Deployment on Render (or Heroku)
+## Deployment
+
+**ON RENDER (or Heroku):**
 
 0. **Link the github repository to Render:**
 
