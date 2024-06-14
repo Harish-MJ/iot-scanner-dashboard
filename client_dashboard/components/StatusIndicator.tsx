@@ -10,6 +10,7 @@ const StatusIndicator: React.FC = () => {
     const checkStatus = async () => {
       try {
         const apiUrl = process.env.REACT_APP_API_URL;
+        console.log('API URL:', apiUrl);
         const response = await axios.get(`${apiUrl}/api/data`);
         setIsConnected(response.data.length > 0); 
       } catch (error) {
