@@ -49,8 +49,8 @@ const DataTable: React.FC = () => {
             <table className="table table-striped table-bordered table-hover">
               <thead className="thead-dark">
                 <tr>
-                  <th>Angle</th>
-                  <th>Distance</th>
+                  <th>Angle (°)</th>
+                  <th>Distance (mm)</th>
                   <th>Intensity</th>
                 </tr>
               </thead>

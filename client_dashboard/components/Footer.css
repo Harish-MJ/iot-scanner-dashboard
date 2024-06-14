@@ -1,0 +1,11 @@
+.footer {
+    margin-top: auto;
+    padding-top: 1; 
+    padding-bottom: 1; 
+    background-color: #343a40; 
+    color: #ffffff; 
+  }
+  
+  .text-muted {
+    color: #6c757d;
+  }
