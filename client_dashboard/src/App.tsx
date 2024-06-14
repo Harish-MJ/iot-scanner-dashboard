@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import DataTable from '../components/DataTable';
 import RealTimeVisualization from '../components/RealTimeVisualization';
 import StatusIndicator from '../components/StatusIndicator';
+import Footer from '../components/Footer'; 
 
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="App">
+      <div className="App d-flex flex-column min-vh-100">
         <StatusIndicator />
-        <div className="container">
+        <div className="container flex-grow-1">
           <h1 className="mt-5 text-center">Lumoview Scanner Dashboard</h1>
           <div className="text-center mb-4">
             <Link to="/data-log" className="btn btn-primary mx-2">Data Log</Link>
@@ -21,6 +22,7 @@ const App: React.FC = () => {
             <Route path="/" element={<DataTable />} />
           </Routes>
         </div>
+        <Footer /> {/* Add the Footer component */}
       </div>
     </Router>
   );
