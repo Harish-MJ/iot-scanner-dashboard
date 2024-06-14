@@ -22,7 +22,7 @@ const App: React.FC = () => {
             <Route path="/" element={<DataTable />} />
           </Routes>
         </div>
-        <Footer /> {/* Add the Footer component */}
+        <Footer />
       </div>
     </Router>
   );
