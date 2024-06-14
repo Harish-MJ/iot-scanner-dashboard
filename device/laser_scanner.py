@@ -7,7 +7,8 @@ import requests
 
 # file path for logging data
 log_file_path = "data/laser_scanner_data.log"
-cloud_server = "http://localhost:5000/data"  
+#cloud_server = "http://localhost:5000/data"  
+cloud_server = "https://iot-scanner-dashboard.onrender.com/api/data"
 # cloud_server = "http://host.docker.internal:5000/data"  # for running inside Docker?
 time_interval = 10  # Time interval in seconds
 
