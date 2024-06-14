@@ -1,11 +1,11 @@
 .footer {
     margin-top: auto;
-    padding-top: 1; 
-    padding-bottom: 1; 
+    padding-top: 1rem; 
+    padding-bottom: 1rem; 
     background-color: #343a40; 
     color: #ffffff; 
   }
   
   .text-muted {
-    color: #ffffff;
+    color: #ffffff !important;
   }
