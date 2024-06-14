@@ -1,0 +1,1 @@
+sudo docker run -d --name laser_scanner laser_scanner
