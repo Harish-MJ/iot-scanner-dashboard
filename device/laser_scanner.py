@@ -7,7 +7,7 @@ import requests
 
 # file path for logging data
 log_file_path = "data/laser_scanner_data.log"
-#cloud_server = "http://localhost:5000/data"  
+# cloud_server = "http://localhost:5000/data"
 cloud_server = "https://iot-scanner-dashboard.onrender.com/api/data"
 # cloud_server = "http://host.docker.internal:5000/data"  # for running inside Docker?
 time_interval = 10  # Time interval in seconds
@@ -15,6 +15,7 @@ time_interval = 10  # Time interval in seconds
 # Ensure directory exists
 if not os.path.exists("data"):
     os.makedirs("data")
+
 
 # Function to generate 2D laser scanner data (angle, distance, intensity)
 def generate_laser_scanner_data():
@@ -24,21 +25,18 @@ def generate_laser_scanner_data():
         angle = i * 10
         distance = random.uniform(100.0, 1000.0)  # Simulate distance in mm
         intensity = random.uniform(0.0, 1.0)  # Simulate intensity
-        distance_measurements.append({
-            "angle": angle,
-            "distance": distance,
-            "intensity": intensity
-        })
+        distance_measurements.append(
+            {"angle": angle, "distance": distance, "intensity": intensity}
+        )
     timestamp = datetime.utcnow().isoformat()
-    return {
-        "timestamp": timestamp,
-        "measurements": distance_measurements
-    }
+    return {"timestamp": timestamp, "measurements": distance_measurements}
+
 
 # Function to write data to a local file
 def log_data(data, file_path):
     with open(file_path, "a") as log_file:
         log_file.write(json.dumps(data) + "\n")
+
 
 # Function to read logdata from local file
 def read_logged_data(file_path):
@@ -47,9 +45,11 @@ def read_logged_data(file_path):
             return log_file.readlines()
     return []
 
+
 # Function to clear log data file after data transfer
 def clear_log_file(file_path):
-    open(file_path, 'w').close()
+    open(file_path, "w").close()
+
 
 # Function to transfer data to the cloud
 def transfer_data_to_cloud(data, endpoint):
@@ -64,6 +64,7 @@ def transfer_data_to_cloud(data, endpoint):
         print(f"Error during data transfer: {e}")
         return False
 
+
 # Function to check internet connectivity by pinging to google.com
 def check_internet_connectivity():
     try:
@@ -76,6 +77,7 @@ def check_internet_connectivity():
     except requests.RequestException as e:
         print(f"An error occurred: {e}")
         return False
+
 
 # Function to handle data storage and transfer
 def handle_data_storage_and_transfer(data):
@@ -102,12 +104,14 @@ def handle_data_storage_and_transfer(data):
         log_data(data, log_file_path)
         print("No connection. Data logged locally.")
 
+
 def main():
     while True:
         data = generate_laser_scanner_data()
-        #print(f"Generated data: {data}")
+        # print(f"Generated data: {data}")
         handle_data_storage_and_transfer(data)
         time.sleep(time_interval)
+
 
 if __name__ == "__main__":
     main()

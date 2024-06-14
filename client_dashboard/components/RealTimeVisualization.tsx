@@ -4,6 +4,8 @@ import { Chart, registerables } from 'chart.js';
 import axios from 'axios';
 import './customStyles.css';
 
+/* RealTimeVisualization component fetches latest data from the server and renders it in a scatter plot */
+
 Chart.register(...registerables);
 
 //const apiUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API_URL : process.env.LOCAL_API_URL;
@@ -38,6 +40,7 @@ const RealTimeVisualization: React.FC = () => {
       try {
         //const apiUrl = process.env.REACT_APP_API_URL;
         const response = await axios.get(`https://iot-scanner-dashboard.onrender.com/api/data`);
+        //const response = await axios.get(`http://localhost:5000/api/data`); Use this line if you are running the server locally
         const latestData = response.data[response.data.length - 1]; // Get the latest data entry
         setData(latestData);
         updateChartData(latestData);

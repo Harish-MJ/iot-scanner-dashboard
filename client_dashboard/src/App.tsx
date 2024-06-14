@@ -5,6 +5,8 @@ import RealTimeVisualization from '../components/RealTimeVisualization';
 import StatusIndicator from '../components/StatusIndicator';
 import Footer from '../components/Footer';
 
+/* App component renders the main layout of the dashboard */
+
 const App: React.FC = () => {
   return (
     <Router>

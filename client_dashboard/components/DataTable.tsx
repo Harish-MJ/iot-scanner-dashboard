@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './DataTable.css';
-import './customStyles.css';  // Import custom styles
+import './customStyles.css';  
+
+/* DataTable componet fetches latest data from the server and renders it in a table */
 
 //const apiUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API_URL : process.env.LOCAL_API_URL;
 
@@ -24,6 +26,7 @@ const DataTable: React.FC = () => {
       try {
         //const apiUrl = process.env.REACT_APP_API_URL;
         const response = await axios.get(`https://iot-scanner-dashboard.onrender.com/api/data`);
+        //const response = await axios.get(`http://localhost:5000/api/data`); Use this line if you are running the server locally
         const latestData = response.data[response.data.length - 1]; // Get the latest data entry
         setData(latestData);
       } catch (error) {
