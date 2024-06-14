@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './StatusIndicator.css'; 
 
-const apiUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API_URL : process.env.LOCAL_API_URL;
+//const apiUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API_URL : process.env.LOCAL_API_URL;
 const StatusIndicator: React.FC = () => {
   const [isConnected, setIsConnected] = useState<boolean>(false);
 
   useEffect(() => {
     const checkStatus = async () => {
       try {
+        const apiUrl = process.env.REACT_APP_API_URL;
         const response = await axios.get(`${apiUrl}/api/data`);
         setIsConnected(response.data.length > 0); 
       } catch (error) {
